@@ -1,49 +1,36 @@
-# Implement a list to represent the alphabet and use it to encode and decode messages.
+# Caesar Cipher logic
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
             "N", "O", "P", "Q", "R", "S",
             "T", "U", "V", "W", "X", "Y", "Z"]
 
-msg = input("Enter a message: ")
-shift = int(input("Enter shift amount: "))
-encoded = ""    # The string we will apend to when encoding
-decoded = ""    # The string we will append to when decoding
-msg = msg.upper()   # Turn into uppercase to prep for encryption
+# Changed from a console based format to a 
+# web based format. 
+# encode and decode can now be imported and used
+# by any other file, such as our flask web application!
 
-print("1) Encode message")
-print("2) Decode message")
-
-choice = int(input("Enter choice: "))
-
-# Only let user pick 1 or 2, else keep asking to re enter. 
-while choice != 1 and choice != 2:
-    print("Invalid choice, enter 1 or 2")
-    choice = int(input("Enter choice: "))
-
-
-# If the above passes, then we drop down to this code.
-if choice == 1:
-    # Append to encoded (user picked 1)
+# We will input a message and shift value
+# The function will then do all work and 
+# return the encoded message
+def encode(msg, shift):
+    encoded = ""    # Will append to this and return it at the end,
+    msg = msg.upper() # Convert to uppercase for easier comparison
     for char in msg:
-        if char in alphabet:    # Check if char in alphabet
+        if char in alphabet:    # If in our list, encode it
             new_position = (alphabet.index(char) + shift) % 26
             encoded += alphabet[new_position]
         else:
-            encoded += char # If not in alphabet, probably special char, space, etc. append.
-    # Append to decoded (user picked 2)
-else:
+            encoded += char # If not in our list, either space or special char. Just append
+    return encoded
+
+
+# Logic from above same here but in reverse for shift.
+def decode(msg, shift):
+    decoded = ""
+    msg = msg.upper()
     for char in msg:
         if char in alphabet:
             new_position = (alphabet.index(char) - shift) % 26
             decoded += alphabet[new_position]
         else:
             decoded += char
-
-# Print results
-if choice == 1:
-    print("Encoded Message: " + encoded)
-else:
-    print("Decoded Message: " + decoded)
-
-
-    
-
+    return decoded
