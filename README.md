@@ -127,4 +127,4 @@ The core Python logic in `caesar_cipher.py` was written entirely by me through k
 
 - [ ] Add support for lowercase letters without converting to uppercase
 - [ ] Add a brute force decoder that tries all 25 possible shifts
-- [ ] Deploy to the web or make it a simple desktop application
+- [ ] Deploy to the web or make it a simple desktop app
