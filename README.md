@@ -66,7 +66,7 @@ The `% 26` ensures letters wrap around correctly — for example shifting `Z` by
 ```
 3. Clone this repository:
 ```
-   git clone https://github.com/z76hxtzzms-cmyk/caesar-cipher.git
+   git clone https://github.com/jstn131/caesar-cipher.git
 ```
 4. Navigate into the project folder:
 ```
